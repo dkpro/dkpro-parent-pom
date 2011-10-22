@@ -19,7 +19,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 	<artifactId>dkpro-parent-pom</artifactId>
-	<version>0-SNAPSHOT</version>
+	<version>1</version>
 	<packaging>pom</packaging>
 	<name>DKPro Parent POM</name>
 	<description>DKPro Core is a collection of software components for natural language processing (NLP) based on the Apache UIMA framework.</description> <!-- The description tag must be present for antrun to work!! -->
@@ -44,9 +44,9 @@
 		<url>http://code.google.com/p/dkpro-core-asl/issues/list</url>
 	</issueManagement>
 	<scm>
-		<connection>http://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/trunk</connection>
-		<developerConnection>scm:svn:https://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/trunk</developerConnection>
-		<url>http://code.google.com/p/dkpro-core-asl/source/browse/dkpro-parent-pom/trunk</url>
+		<connection>http://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/tags/dkpro-parent-pom-1</connection>
+		<developerConnection>scm:svn:https://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/tags/dkpro-parent-pom-1</developerConnection>
+		<url>http://code.google.com/p/dkpro-core-asl/source/browse/dkpro-parent-pom/tags/dkpro-parent-pom-1</url>
 	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
