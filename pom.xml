@@ -29,15 +29,6 @@
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
 	</parent>
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>ukp-oss-releases</id>
-			<url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-model-releases-local</url>
-		</repository>
-	</repositories>
 	<prerequisites>
 		<maven>2.2.1</maven>
 	</prerequisites>
