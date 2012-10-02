@@ -22,7 +22,7 @@
 	<version>3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>DKPro Parent POM</name>
-	<description>DKPro Core is a collection of software components for natural language processing (NLP) based on the Apache UIMA framework.</description> <!-- The description tag must be present for antrun to work!! -->
+	<description>Parent POM for DKPro projects. This provides some basic configuration for several Maven plugins as well as useful build profiles.</description> <!-- The description tag must be present for antrun to work!! -->
 	<url>http://code.google.com/p/dkpro-core-asl/</url>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
@@ -205,7 +205,7 @@
 			<extension>
 				<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 				<artifactId>build-tools</artifactId>
-				<version>4-SNAPSHOT</version>
+				<version>4</version>
 			</extension>
 		</extensions>
 	</build>
