@@ -24,6 +24,7 @@
 	<name>DKPro Parent POM</name>
 	<description>Parent POM for DKPro projects. This provides some basic configuration for several Maven plugins as well as useful build profiles.</description> <!-- The description tag must be present for antrun to work!! -->
 	<url>http://code.google.com/p/dkpro-core-asl/</url>
+	<inceptionYear>2011</inceptionYear>
 	<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
@@ -159,6 +160,11 @@
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>1.7</version>
 				</plugin>					
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-remote-resources-plugin</artifactId>
+					<version>1.4</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -169,16 +175,8 @@
 					<linkXref>false</linkXref>
 					<source>${java.target}</source>
 					<target>${java.target}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
 					<showDeprecation>true</showDeprecation>
 					<showWarnings>true</showWarnings>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -379,6 +377,91 @@
 				</plugins>
 			</build>
 		</profile>
+		<profile>
+			<!-- 
+			 - This profile takes care of copying the NOTICE, LICENSE, etc. files to the proper
+			 - locations.
+			 -->
+			<id>add-license</id>
+			<activation>
+				<file><exists>LICENSE.txt</exists></file>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.gmaven</groupId>
+						<artifactId>gmaven-plugin</artifactId>
+						<version>1.4</version>
+						<inherited>true</inherited>
+						<executions>
+							<execution>
+								<!-- Load postNoticeText from NOTICE file -->
+								<id>read-notice</id>
+								<phase>generate-sources</phase>
+								<goals>
+									<goal>execute</goal>
+								</goals>
+								<configuration>
+									<source>
+										def noticeFile = new File(project.basedir.path +
+										"/NOTICE.txt");
+										if (noticeFile.exists()) {
+										project.properties.postNoticeText = noticeFile.text;
+										}
+									</source>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>							
+					<!-- The DEPENDENCIES and NOTICE templates are read here -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-remote-resources-plugin</artifactId>
+						<inherited>true</inherited>
+						<executions>
+							<execution>
+								<id>process-remote-resources</id>
+								<phase>generate-resources</phase>
+								<goals>
+									<goal>process</goal>
+								</goals>
+								<configuration>
+									<resourceBundles>
+										<resourceBundle>de.tudarmstadt.ukp.dkpro.core:build-resources:1-SNAPSHOT</resourceBundle>
+									</resourceBundles>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-resources-plugin</artifactId>
+						<inherited>true</inherited>
+						<executions>
+							<execution>
+								<id>copy-license</id>
+								<goals>
+									<goal>copy-resources</goal>
+								</goals>
+								<phase>generate-resources</phase>
+								<configuration>
+									<outputDirectory>${project.build.outputDirectory}/META-INF</outputDirectory>
+									<resources>
+										<resource>
+											<filtering>false</filtering>
+											<directory>${basedir}</directory>
+											<includes>
+												<include>README.txt</include>
+												<include>LICENSE.txt</include>
+											</includes>
+										</resource>
+									</resources>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
-	<inceptionYear>2011</inceptionYear>
 </project>
