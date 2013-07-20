@@ -458,7 +458,7 @@
 								</goals>
 								<configuration>
 									<resourceBundles>
-										<resourceBundle>de.tudarmstadt.ukp.dkpro.core:build-resources:1-SNAPSHOT</resourceBundle>
+										<resourceBundle>de.tudarmstadt.ukp.dkpro.core:build-resources:1</resourceBundle>
 									</resourceBundles>
 								</configuration>
 							</execution>
