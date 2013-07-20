@@ -379,9 +379,6 @@
 		</profile>
 		<profile>
 			<id>check-license.txt</id>
-			<activation>
-				<file><missing>LICENSE.txt</missing></file>
-			</activation>
 			<build>
 				<plugins>
 					<plugin>
@@ -394,7 +391,15 @@
 								<goals><goal>run</goal></goals>
 								<configuration>
 									<tasks>
-										<fail message="LICENSE.txt file is missing"/>
+										<fail message="LICENSE.txt file is missing.">
+										    <condition>
+										        <not>
+										            <resourcecount count="1">
+										                <fileset dir="." includes="LICENSE.txt"/>
+										            </resourcecount>
+										        </not>
+										    </condition>
+										</fail>									
 									</tasks>
 								</configuration>
 							</execution>
