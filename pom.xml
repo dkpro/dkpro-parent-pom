@@ -19,7 +19,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 	<artifactId>dkpro-parent-pom</artifactId>
-	<version>5-SNAPSHOT</version>
+	<version>5</version>
 	<packaging>pom</packaging>
 	<name>DKPro Parent POM</name>
 	<description>Parent POM for DKPro projects. This provides some basic configuration for several Maven plugins as well as useful build profiles.</description> <!-- The description tag must be present for antrun to work!! -->
@@ -38,9 +38,9 @@
 		<url>http://code.google.com/p/dkpro-core-asl/issues/list</url>
 	</issueManagement>
 	<scm>
-		<connection>scm:svn:http://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/trunk</connection>
-		<developerConnection>scm:svn:https://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/trunk</developerConnection>
-		<url>http://code.google.com/p/dkpro-core-asl/source/browse/dkpro-parent-pom/trunk</url>
+		<connection>scm:svn:http://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/tags/dkpro-parent-pom-5</connection>
+		<developerConnection>scm:svn:https://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/tags/dkpro-parent-pom-5</developerConnection>
+		<url>http://code.google.com/p/dkpro-core-asl/source/browse/dkpro-parent-pom/tags/dkpro-parent-pom-5</url>
 	</scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
