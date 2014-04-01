@@ -208,30 +208,6 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>attach-test</id>
-			<activation>
-				<file>
-					<exists>src/test</exists>
-				</file>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jar-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>attach-test</id>
-								<goals>
-									<goal>test-jar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
 			<id>attach-javadoc</id>
 			<build>
 				<plugins>
