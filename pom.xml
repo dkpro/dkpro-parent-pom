@@ -47,6 +47,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.surefire.heap>512m</maven.surefire.heap>
+		<maven.surefire.argLine></maven.surefire.argLine>
 	</properties>
 	<build>
 		<pluginManagement>
@@ -156,6 +157,14 @@
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>cobertura-maven-plugin</artifactId>
 					<version>2.6</version>
+					<dependencies>
+						<!-- Work around some Java 8 issues: http://jira.codehaus.org/browse/MCOBERTURA-189 -->
+						<dependency>
+							<groupId>org.ow2.asm</groupId>
+							<artifactId>asm</artifactId>
+							<version>5.0.3</version>
+						</dependency>
+					</dependencies>
 				</plugin>				
 				<plugin>
 					<groupId>org.apache.rat</groupId>
@@ -195,7 +204,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
-					<argLine>-Xmx${maven.surefire.heap} -Xms${maven.surefire.heap}</argLine>
+					<argLine>-Xmx${maven.surefire.heap} -Xms${maven.surefire.heap} ${maven.surefire.argLine}</argLine>
 				</configuration>
 			</plugin>
 		</plugins>
