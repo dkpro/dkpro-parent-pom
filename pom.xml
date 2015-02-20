@@ -71,6 +71,9 @@
         <releases>
           <enabled>false</enabled>
         </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
       </pluginRepository>
     </pluginRepositories>
     <!--  END NEEDED FOR http://jira.codehaus.org/browse/MCOBERTURA-189 -->
