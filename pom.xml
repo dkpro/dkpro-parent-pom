@@ -49,35 +49,6 @@
 		<maven.surefire.heap>512m</maven.surefire.heap>
 		<maven.surefire.argLine />
 	</properties>
-    <!--  BEGIN NEEDED FOR http://jira.codehaus.org/browse/MCOBERTURA-189 -->
-    <repositories>
-      <repository>
-        <id>ossrh</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        <releases>
-          <enabled>false</enabled>
-        </releases>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-      </repository>
-    </repositories>
-  
-    <pluginRepositories>
-      <pluginRepository>
-        <id>codehaus-snapshots</id>
-        <name>Codehaus Snapshots</name>
-        <url>http://nexus.codehaus.org/snapshots/</url>
-        <releases>
-          <enabled>false</enabled>
-        </releases>
-        <snapshots>
-          <enabled>true</enabled>
-        </snapshots>
-      </pluginRepository>
-    </pluginRepositories>
-    <!--  END NEEDED FOR http://jira.codehaus.org/browse/MCOBERTURA-189 -->
-    
     <build>
 		<pluginManagement>
 			<plugins>
@@ -179,14 +150,13 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>cobertura-maven-plugin</artifactId>
-                    <!-- Work around some Java 8 issues: http://jira.codehaus.org/browse/MCOBERTURA-189 -->
-					<version>2.7-SNAPSHOT</version>
+					<version>2.7</version>
 				</plugin>				
 				<plugin>
 					<groupId>org.apache.rat</groupId>
 					<artifactId>apache-rat-plugin</artifactId>
 					<version>0.11</version>
-				</plugin>					
+				</plugin>				
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
