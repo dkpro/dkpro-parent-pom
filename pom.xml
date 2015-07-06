@@ -19,7 +19,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
 	<artifactId>dkpro-parent-pom</artifactId>
-	<version>12-SNAPSHOT</version>
+	<version>12</version>
 	<packaging>pom</packaging>
 	<name>DKPro Parent POM</name>
     <!-- The description tag must be present for antrun to work!! -->
@@ -42,7 +42,8 @@
         <connection>scm:git:git://github.com/dkpro/dkpro-parent-pom</connection>
         <developerConnection>scm:git:git@github.com:dkpro/dkpro-parent-pom.git</developerConnection>
         <url>https://github.com/dkpro/dkpro-parent-pom</url>
-    </scm>
+      <tag>dkpro-parent-pom-12</tag>
+  </scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
