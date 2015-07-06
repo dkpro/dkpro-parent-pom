@@ -22,7 +22,8 @@
 	<version>12-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>DKPro Parent POM</name>
-	<description>Parent POM for DKPro projects. This provides some basic configuration for several Maven plugins as well as useful build profiles.</description> <!-- The description tag must be present for antrun to work!! -->
+    <!-- The description tag must be present for antrun to work!! -->
+	<description>Parent POM for DKPro projects. This provides some basic configuration for several Maven plugins as well as useful build profiles.</description> 
 	<url>http://code.google.com/p/dkpro-core-asl/</url>
 	<inceptionYear>2011</inceptionYear>
 	<parent>
@@ -119,12 +120,12 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.5.4</version>
+					<version>2.5.5</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-pmd-plugin</artifactId>
-					<version>3.4</version>
+					<version>3.5</version>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -155,7 +156,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
-					<version>1.4</version>
+					<version>1.8</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -382,7 +383,7 @@
 								<goals><goal>run</goal></goals>
 								<inherited>true</inherited>
 								<configuration>
-									<tasks>
+									<target>
 										<fail message="LICENSE.txt file is missing.">
 										    <condition>
 										        <not>
@@ -392,7 +393,7 @@
 										        </not>
 										    </condition>
 										</fail>									
-									</tasks>
+									</target>
 								</configuration>
 							</execution>
 						</executions>
