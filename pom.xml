@@ -34,15 +34,15 @@
 	<prerequisites>
 		<maven>3.0.1</maven>
 	</prerequisites>
-	<issueManagement>
-		<system>Google Code</system>
-		<url>http://code.google.com/p/dkpro-core-asl/issues/list</url>
-	</issueManagement>
-	<scm>
-		<connection>scm:svn:http://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/trunk</connection>
-		<developerConnection>scm:svn:https://dkpro-core-asl.googlecode.com/svn/dkpro-parent-pom/trunk</developerConnection>
-		<url>http://code.google.com/p/dkpro-core-asl/source/browse/dkpro-parent-pom/trunk</url>
-	</scm>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/dkpro/dkpro-parent-pom/issues</url>
+    </issueManagement>
+    <scm>
+        <connection>scm:git:git://github.com/dkpro/dkpro-parent-pom</connection>
+        <developerConnection>scm:git:git@github.com:dkpro/dkpro-parent-pom.git</developerConnection>
+        <url>https://github.com/dkpro/dkpro-parent-pom</url>
+    </scm>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
