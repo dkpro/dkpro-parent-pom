@@ -371,6 +371,17 @@
 			</build>
 		</profile>
 		<profile>
+            <id>jacoco</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+		<profile>
 			<id>check-license.txt</id>
 			<build>
 				<plugins>
