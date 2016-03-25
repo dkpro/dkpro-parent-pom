@@ -224,13 +224,6 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<configuration>
-					<wtpversion>2.0</wtpversion>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<argLine>@{jacoco.argLine} -Xmx${maven.surefire.heap} -Xms${maven.surefire.heap} ${maven.surefire.argLine}</argLine>
