@@ -48,6 +48,19 @@
         <jacoco.argLine />
         <gpg.useagent>true</gpg.useagent>
 	</properties>
+    <developers>
+        <developer>
+            <organization>DKPro Team</organization>
+            <organizationUrl>https://dkpro.github.io</organizationUrl>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>Apache License Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
