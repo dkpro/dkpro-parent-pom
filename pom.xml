@@ -307,13 +307,13 @@
 							<execution>
 								<id>attach-source</id>
 								<goals>
-									<goal>jar</goal>
+                                    <goal>jar-no-fork</goal>
 								</goals>
 							</execution>
 							<execution>
 								<id>attach-test-source</id>
 								<goals>
-									<goal>test-jar</goal>
+									<goal>test-jar-no-fork</goal>
 								</goals>
 							</execution>
 						</executions>
