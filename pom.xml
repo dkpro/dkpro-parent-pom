@@ -24,7 +24,7 @@
   <name>DKPro Parent POM</name>
   <!-- The description tag must be present for antrun to work!! -->
   <description>Parent POM for DKPro projects. This provides some basic configuration for several Maven plugins as well as useful build profiles.</description>
-  <url>http://code.google.com/p/dkpro-core-asl/</url>
+  <url>https://dkpro.github.io</url>
   <inceptionYear>2011</inceptionYear>
   <prerequisites>
     <maven>3.0.5</maven>
