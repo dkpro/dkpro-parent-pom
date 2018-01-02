@@ -255,11 +255,6 @@
     </plugins>
     <extensions>
       <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-webdav</artifactId>
-        <version>1.0-beta-2</version>
-      </extension>
-      <extension>
         <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
         <artifactId>build-tools</artifactId>
         <version>4</version>
