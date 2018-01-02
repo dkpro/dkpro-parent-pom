@@ -154,29 +154,8 @@
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
-          <artifactId>javancss-maven-plugin</artifactId>
-          <version>2.1</version>
-          <dependencies>
-            <!--
-              Per default depends on a jaxen version with draws in a jdom version
-              that has a broken pom and does pass Artifactory's consistency checks
-            -->
-            <dependency>
-              <groupId>jaxen</groupId>
-              <artifactId>jaxen</artifactId>
-              <version>1.1.1</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
           <version>3.0.5</version>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>cobertura-maven-plugin</artifactId>
-          <version>2.7</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
@@ -335,31 +314,6 @@
       </build>
     </profile>
     <profile>
-      <id>javancss</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>javancss-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>report</goal>
-                </goals>
-                <configuration>
-                  <linkXRef>false</linkXRef>
-                  <excludes>
-                    <exclude>**/type/**/*.java</exclude>
-                  </excludes>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
       <id>findbugs</id>
       <build>
         <plugins>
@@ -376,30 +330,6 @@
                   <findbugsXmlOutput>true</findbugsXmlOutput>
                   <xmlOutput>true</xmlOutput>
                   <excludeFilterFile>dkpro-core/findbugs-excludes.xml</excludeFilterFile>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>cobertura</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>cobertura-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <phase>package</phase>
-                <goals>
-                  <goal>cobertura</goal>
-                </goals>
-                <configuration>
-                  <formats>
-                    <format>xml</format>
-                  </formats>
                 </configuration>
               </execution>
             </executions>
