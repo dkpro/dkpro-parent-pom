@@ -15,7 +15,9 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.dkpro</groupId>
   <artifactId>dkpro-parent-pom</artifactId>
@@ -98,7 +100,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.1.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -108,7 +110,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.0.1</version>
+          <version>3.1.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -142,7 +144,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.1.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -157,7 +159,7 @@
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.2</version>
+          <version>0.8.3</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -248,8 +250,8 @@
                   <message>Minimum  Maven 3.3.2 required as activation policy for profiles with multiple activation conditions changed from OR to AND.</message>
                 </requireMavenVersion>
                 <requireMavenVersion>
-                  <version>[3.3.9,)</version>
-                  <message>Minimum Maven version 3.0.5 required for plugins.</message>
+                  <version>[3.5,)</version>
+                  <message>Minimum Maven version 3.5 required for plugins.</message>
                 </requireMavenVersion>
               </rules>
             </configuration>
@@ -448,9 +450,9 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.codehaus.gmavenplus</groupId>
-            <artifactId>gmavenplus-plugin</artifactId>
-            <version>1.6.2</version>
+            <groupId>org.codehaus.gmaven</groupId>
+            <artifactId>groovy-maven-plugin</artifactId>
+            <version>2.1</version>
             <inherited>true</inherited>
             <executions>
               <execution>
@@ -461,15 +463,12 @@
                   <goal>execute</goal>
                 </goals>
                 <configuration>
-                  <scripts>
-                    <script>
-                      def noticeFile = new File(project.basedir.path +
-                      "/NOTICE.txt");
-                      if (noticeFile.exists()) {
+                  <source>
+                    def noticeFile = new File(project.basedir.path + "/NOTICE.txt");
+                    if (noticeFile.exists()) {
                       project.properties.postNoticeText = noticeFile.text;
-                      }
-                    </script>
-                  </scripts>
+                    }
+                  </source>
                 </configuration>
               </execution>
             </executions>
@@ -481,7 +480,7 @@
               <dependency>
                 <groupId>org.codehaus.groovy</groupId>
                 <artifactId>groovy-all</artifactId>
-                <version>2.5.4</version>
+                <version>2.5.6</version>
                 <type>pom</type>
                 <scope>runtime</scope>
               </dependency>
