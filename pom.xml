@@ -510,7 +510,7 @@
                 <configuration>
                   <excludeArtifactIds>*</excludeArtifactIds>
                   <resourceBundles>
-                    <resourceBundle>de.tudarmstadt.ukp.dkpro.core:build-resources:1</resourceBundle>
+                    <resourceBundle>de.tudarmstadt.ukp.dkpro.core:build-resources:2</resourceBundle>
                   </resourceBundles>
                 </configuration>
               </execution>
