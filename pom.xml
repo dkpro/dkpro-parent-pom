@@ -19,7 +19,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.dkpro</groupId>
   <artifactId>dkpro-parent-pom</artifactId>
-  <version>33</version>
+  <version>34-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>DKPro Parent POM</name>
   <!-- The description tag must be present for antrun to work!! -->
