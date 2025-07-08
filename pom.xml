@@ -66,16 +66,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
   <build>
     <pluginManagement>
       <plugins>
@@ -224,6 +214,11 @@
           <groupId>org.codehaus.gmaven</groupId>
           <artifactId>groovy-maven-plugin</artifactId>
           <version>2.1.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.sonatype.central</groupId>
+          <artifactId>central-publishing-maven-plugin</artifactId>
+          <version>0.8.0</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -600,6 +595,14 @@
                 </goals>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central</publishingServerId>
+            </configuration>
           </plugin>
         </plugins>
       </build>
