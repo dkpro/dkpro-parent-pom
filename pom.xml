@@ -49,9 +49,9 @@
     <maven.surefire.argLine />
     <jacoco.argLine />
     <gpg.useagent>true</gpg.useagent>
-    <build-groovy-version>4.0.21</build-groovy-version>
-    <build-ant-version>1.10.14</build-ant-version>
-    <build-asciidoctorj-pdf-version>2.3.15</build-asciidoctorj-pdf-version>
+    <build-groovy-version>5.0.3</build-groovy-version>
+    <build-ant-version>1.10.15</build-ant-version>
+    <build-asciidoctorj-pdf-version>2.3.23</build-asciidoctorj-pdf-version>
   </properties>
   <developers>
     <developer>
@@ -72,7 +72,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
-          <version>2.18.0</version>
+          <version>2.20.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -92,27 +92,27 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.14.0</version>
+          <version>3.14.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>3.3.1</version>
+          <version>3.4.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.4.2</version>
+          <version>3.5.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>3.3.1</version>
+          <version>3.4.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>3.11.2</version>
+          <version>3.12.0</version>
           <configuration>
             <quiet>true</quiet>
           </configuration>
@@ -120,7 +120,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>3.1.1</version>
+          <version>3.3.1</version>
           <configuration>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <useReleaseProfile>false</useReleaseProfile>
@@ -130,7 +130,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.5.3</version>
+          <version>3.5.4</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -140,38 +140,37 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.8.1</version>
+          <version>3.9.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.7.1</version>
+          <version>3.8.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
-          <version>3.27.0</version>
+          <version>3.28.0</version>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.13</version>
+          <version>0.8.14</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-antrun-plugin</artifactId>
-          <version>3.1.0</version>
+          <version>3.2.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-remote-resources-plugin</artifactId>
           <version>3.3.0</version>
-          <!-- Stuck with 1.7.0 due to https://issues.apache.org/jira/browse/MRRESOURCES-129 -->
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>3.6.0</version>
+          <version>3.6.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -181,12 +180,12 @@
         <plugin>
           <groupId>org.apache.rat</groupId>
           <artifactId>apache-rat-plugin</artifactId>
-          <version>0.16.1</version>
+          <version>0.17</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
-          <version>3.4.0</version>
+          <version>3.5.1</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -208,7 +207,7 @@
         <plugin>
           <groupId>com.github.spotbugs</groupId>
           <artifactId>spotbugs-maven-plugin</artifactId>
-          <version>4.9.3.2</version>
+          <version>4.9.8.2</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.gmaven</groupId>
@@ -218,7 +217,7 @@
         <plugin>
           <groupId>org.sonatype.central</groupId>
           <artifactId>central-publishing-maven-plugin</artifactId>
-          <version>0.8.0</version>
+          <version>0.9.0</version>
         </plugin>
       </plugins>
     </pluginManagement>
