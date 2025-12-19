@@ -19,7 +19,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.dkpro</groupId>
   <artifactId>dkpro-parent-pom</artifactId>
-  <version>34-SNAPSHOT</version>
+  <version>34</version>
   <packaging>pom</packaging>
   <name>DKPro Parent POM</name>
   <!-- The description tag must be present for antrun to work!! -->
@@ -34,7 +34,7 @@
     <connection>scm:git:https://github.com/dkpro/dkpro-parent-pom.git</connection>
     <developerConnection>scm:git:https://github.com/dkpro/dkpro-parent-pom.git</developerConnection>
     <url>https://github.com/dkpro/dkpro-parent-pom</url>
-    <tag>dkpro-parent-pom-33</tag>
+    <tag>dkpro-parent-pom-34</tag>
   </scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
