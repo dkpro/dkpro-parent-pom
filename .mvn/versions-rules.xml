@@ -1,0 +1,53 @@
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!--
+  - Rules for versions-maven-plugin, used during dependency upgrade passes.
+  -
+  - This project is a pure parent POM: anything configured in its
+  - <pluginManagement> is inherited by every project that uses it as a parent.
+  - A <rulesUri> must therefore NOT be configured in the POM - it would resolve
+  - against each inheriting project's own directory and fail there. Instead pass
+  - this file explicitly on the command line:
+  -
+  -   mvn -Dmaven.version.rules=file://$(pwd)/.mvn/versions-rules.xml \
+  -       versions:display-plugin-updates
+-->
+<ruleset comparisonMethod="maven"
+         xmlns="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0">
+  <ignoreVersions>
+    <!--
+      - Pre-release suffixes. Without these the candidate list is dominated by
+      - the Maven 4.x plugin betas/milestones, which also MASK the stable
+      - updates on the same line (e.g. surefire 3.5.6 hidden behind 3.6.0-M1).
+    -->
+    <ignoreVersion type="regex">(?i).*[-_\.]CR[0-9\.]*</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*[-_\.]M[0-9\.]*</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*[-_\.]rc[0-9\.-]*</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*[-_\.]Dev[0-9\.-]*</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*[-_\.]alpha[0-9\.-]*</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*[-_\.]beta[0-9\.-]*</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*[-_\.]preview[0-9\.-]*</ignoreVersion>
+    <!-- Date-stamped variants (e.g. ...20040117.000000) -->
+    <ignoreVersion type="regex">\d{4,}.*</ignoreVersion>
+    <!-- Backwards-compat variants for legacy JDKs (e.g. byte-buddy 1.18.8-jdk5) -->
+    <ignoreVersion type="regex">(?i).*[-_\.]jdk[0-9]+</ignoreVersion>
+  </ignoreVersions>
+  <rules>
+    <!--
+      - Per-artifact pins go here. A pin means "this version is known-broken for
+      - us" - always say why, with an issue link where possible. Do not pin
+      - upgrades that simply have not been done yet.
+    -->
+  </rules>
+</ruleset>

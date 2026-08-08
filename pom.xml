@@ -49,8 +49,8 @@
     <maven.surefire.argLine />
     <jacoco.argLine />
     <gpg.useagent>true</gpg.useagent>
-    <build-groovy-version>5.0.3</build-groovy-version>
-    <build-ant-version>1.10.15</build-ant-version>
+    <build-groovy-version>5.0.6</build-groovy-version>
+    <build-ant-version>1.10.17</build-ant-version>
     <build-asciidoctorj-pdf-version>2.3.23</build-asciidoctorj-pdf-version>
   </properties>
   <developers>
@@ -87,7 +87,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.12.1</version>
+          <version>3.22.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -102,7 +102,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.5.0</version>
+          <version>3.5.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -130,7 +130,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.5.4</version>
+          <version>3.5.6</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -207,7 +207,7 @@
         <plugin>
           <groupId>com.github.spotbugs</groupId>
           <artifactId>spotbugs-maven-plugin</artifactId>
-          <version>4.10.2.0</version>
+          <version>4.10.3.0</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.gmaven</groupId>
