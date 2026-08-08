@@ -1,0 +1,1 @@
+Test license placeholder - presence activates the add-license profile.
