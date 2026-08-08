@@ -538,7 +538,7 @@
                 </goals>
                 <phase>generate-resources</phase>
                 <configuration>
-                  <outputDirectory>${project.build.outputDirectory}/META-INF</outputDirectory>
+                  <outputDirectory>${project.build.directory}/license-resources/META-INF</outputDirectory>
                   <resources>
                     <resource>
                       <filtering>false</filtering>
@@ -547,6 +547,28 @@
                         <include>README.txt</include>
                         <include>LICENSE.txt</include>
                       </includes>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <inherited>true</inherited>
+            <executions>
+              <execution>
+                <id>add-license-resources</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>add-resource</goal>
+                  <goal>add-test-resource</goal>
+                </goals>
+                <configuration>
+                  <resources>
+                    <resource>
+                      <directory>${project.build.directory}/license-resources</directory>
                     </resource>
                   </resources>
                 </configuration>
