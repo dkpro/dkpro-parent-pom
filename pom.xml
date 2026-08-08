@@ -218,6 +218,35 @@
     </pluginManagement>
     <plugins>
       <plugin>
+        <!--
+          - Integration tests for the build logic in this POM. The consumer projects under
+          - src/it inherit from the POM being built and are checked against the NOTICE.txt
+          - they end up generating.
+        -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-invoker-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <projectsDirectory>src/it</projectsDirectory>
+          <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+          <postBuildHookScript>verify</postBuildHookScript>
+          <streamLogs>false</streamLogs>
+          <showErrors>true</showErrors>
+          <goals>
+            <goal>process-resources</goal>
+          </goals>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-test</id>
+            <goals>
+              <goal>install</goal>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
       </plugin>
@@ -486,6 +515,55 @@
                   </source>
                 </configuration>
               </execution>
+              <execution>
+                <!-- Determine the copyright end year rendered into NOTICE.txt -->
+                <id>copyright-year</id>
+                <phase>generate-sources</phase>
+                <goals>
+                  <goal>execute</goal>
+                </goals>
+                <configuration>
+                  <source>
+                    import java.time.Instant
+                    import java.time.Year
+                    import java.time.ZoneOffset
+
+                    // A pinned project.build.outputTimestamp means the project builds
+                    // reproducibly, so the year has to come from that timestamp - otherwise
+                    // rebuilding an old commit later would silently change its NOTICE.
+                    // Without a pin there is nothing to be reproducible against and the
+                    // current year is what the notice should state. Hard-coding a year is
+                    // avoided on purpose - it goes stale without anything failing.
+                    //
+                    // -D sets a user property, which does not show up in project.properties,
+                    // so the session has to be consulted first.
+                    def ts = session.userProperties['project.build.outputTimestamp'] ?:
+                             project.properties['project.build.outputTimestamp']
+
+                    def currentYear = { Year.now(ZoneOffset.UTC).value as String }
+
+                    def year
+                    if (!ts) {
+                      // Property entirely absent
+                      year = currentYear()
+                    }
+                    else if (ts ==~ /^\d+$/) {
+                      // Epoch seconds, as used by SOURCE_DATE_EPOCH
+                      year = Instant.ofEpochSecond(ts as long).atZone(ZoneOffset.UTC).year as String
+                    }
+                    else if (ts ==~ /^\d{4}-\d{2}-\d{2}T.*/ &amp;&amp; !ts.startsWith('1980-')) {
+                      // ISO 8601. Maven substitutes the 1980 epoch sentinel when the property
+                      // is not set anywhere, which must not be mistaken for a deliberate pin.
+                      year = ts.substring(0, 4)
+                    }
+                    else {
+                      year = currentYear()
+                    }
+
+                    project.properties['dkpro.copyright.year'] = year
+                  </source>
+                </configuration>
+              </execution>
             </executions>
             <dependencies>
               <!--
@@ -520,7 +598,7 @@
                 <configuration>
                   <excludeArtifactIds>*</excludeArtifactIds>
                   <resourceBundles>
-                    <resourceBundle>de.tudarmstadt.ukp.dkpro.core:build-resources:3</resourceBundle>
+                    <resourceBundle>de.tudarmstadt.ukp.dkpro.core:build-resources:4</resourceBundle>
                   </resourceBundles>
                 </configuration>
               </execution>
